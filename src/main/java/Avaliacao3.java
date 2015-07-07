@@ -52,8 +52,10 @@ public class Avaliacao3 {
         if (index < 0) {
             return;
         }
-        for(int i = index ; index < lancamentos.size() && lancamentos.get(i).getConta().equals(conta) ; i++) {
-            System.out.println(lancamentos.get(index));
+        for(int i = index ; i < lancamentos.size() ; i++) {
+            if (lancamentos.get(i).getConta().equals(conta)){
+                System.out.println(lancamentos.get(i));
+            }
         }
     }
  

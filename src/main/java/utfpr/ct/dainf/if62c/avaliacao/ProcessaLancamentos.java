@@ -55,8 +55,9 @@ public class ProcessaLancamentos {
     
     private Lancamento getNextLancamento() throws IOException {
         //throw new UnsupportedOperationException("Não implementado");
-        if (this.getNextLine() != null){
-            return this.processaLinha(this.getNextLine());
+        String l = getNextLine();
+        if (l != null){
+            return processaLinha(l);
         }
         else{
             return null;
@@ -64,14 +65,15 @@ public class ProcessaLancamentos {
     }
     
     public List<Lancamento> getLancamentos() throws IOException {
-        ArrayList<Lancamento> list = new ArrayList<>();
+        List<Lancamento> list = new ArrayList<>();
         
         while(this.getNextLine() != null){
             list.add(this.getNextLancamento());
         }
         LancamentoComparator compare = new LancamentoComparator();
         list.sort(compare);
-        return list.subList(0, list.size());
+        reader.close();
+        return list;
     }
     
 }
