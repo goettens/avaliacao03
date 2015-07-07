@@ -42,11 +42,11 @@ public class ProcessaLancamentos {
         Integer m = Integer.valueOf(linha.substring(10,12));
         Integer y = Integer.valueOf(linha.substring(6,10));
         
-        GregorianCalendar gregoriano = new GregorianCalendar((int)y,(int)m,(int)d);
+        GregorianCalendar gregoriano = new GregorianCalendar((int)y,(int)m-1,(int)d);
         
         Date date = new Date(gregoriano.getTimeInMillis());
         
-        String desc = linha.substring(14,74);
+        String desc = linha.substring(14,74).trim();
         double valorR = Double.valueOf(linha.substring(74,84));
         double valorC = Double.valueOf(linha.substring(84,86))*0.01;
         
